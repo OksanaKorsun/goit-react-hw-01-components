@@ -1,9 +1,10 @@
-export const FriedListItem = ({ avatar, name }) => {
+import { Item, Accent } from './FriendListItem.styled';
+export const FriedListItem = ({ avatar, name, isOnline }) => {
   return (
-    <li className="item">
-      <span className="status"></span>
-      <img className="avatar" src={avatar} alt={name} width="48" />
-      <p className="name">{name}</p>
-    </li>
+    <Item>
+      <Accent status={isOnline}></Accent>
+      <img src={avatar} alt={name} width="48" />
+      <p>{name}</p>
+    </Item>
   );
 };

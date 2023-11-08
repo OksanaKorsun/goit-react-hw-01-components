@@ -1,33 +1,29 @@
-import { Avatar } from "./Profile.styled"
-
+import { Wraper, Avatar, Text, List, Accent } from './Profile.styled';
 
 export const Profile = ({ username, location, avatar, tag, stats }) => {
-    return (<div className="profile">
-  <div className="description">
-    <Avatar
-      src={avatar}
-      alt={username}
-      className="avatar"
-    />
-            <p className="name">{username}</p>
-            <p className="tag">{tag}</p>
-            <p className="location">{location}</p>
-  </div>
+  return (
+    <Wraper>
+      <div className="description">
+        <Avatar src={avatar} alt={username} />
+        <Text $variant="bold">{username}</Text>
+        <Text>@{tag}</Text>
+        <Text>{location}</Text>
+      </div>
 
-  <ul className="stats">
-    <li>
-                <span className="label">Followers </span>
-      <span className="quantity">{stats.followers}</span>
-    </li>
-    <li>
-      <span className="label">Views </span>
-                <span className="quantity">{stats.views}</span>
-    </li>
-    <li>
-      <span className="label">Likes </span>
-                <span className="quantity">{stats.likes}</span>
-    </li>
-  </ul>
-</div>
-)
-}
+      <List>
+        <li>
+          <Accent>Followers </Accent>
+          <Accent $variant="bold">{stats.followers}</Accent>
+        </li>
+        <li>
+          <Accent>Views </Accent>
+          <Accent $variant="bold">{stats.views}</Accent>
+        </li>
+        <li>
+          <Accent>Likes </Accent>
+          <Accent $variant="bold">{stats.likes}</Accent>
+        </li>
+      </List>
+    </Wraper>
+  );
+};
