@@ -4,11 +4,11 @@ export const Statistics = ({ title, stats }) => {
     <Wrapper>
       {title && <Title>{title}</Title>}
       <List>
-        {stats.map(stat => {
+        {stats.map(({id, label, percentage }) => {
           return (
-            <Item key={stat.id} $variant={stat.label}>
-              <Label>{stat.label}</Label>
-              <Label $variant="bold">{stat.percentage}%</Label>
+            <Item key={id} $variant={label}>
+              <Label>{label}</Label>
+              <Label $variant="bold">{percentage}%</Label>
             </Item>
           );
         })}
